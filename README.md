@@ -29,3 +29,5 @@ Settings → Pages → Source: **Deploy from a branch** → Branch: `main` / `(r
 ## Regenerate the résumé PDF
 
 Open `resume/resume.html` in Chrome, choose Print → Save as PDF (A4, no headers/footers), and save it as `assets/Robin_Rajesh_Resume.pdf`.
+
+After changing `styles.css` or `fx.js`, bump the `?v=` number on their links in `index.html` so browsers don't pair the new page with a cached old file.
