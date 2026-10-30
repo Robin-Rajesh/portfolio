@@ -60,7 +60,7 @@ body {
 .page {
   max-width: 68rem;
   margin: 0 auto;
-  padding-block: 1.5rem 3rem;
+  padding-block: 0 3rem;
   padding-left: max(20px, env(safe-area-inset-left, 0px));
   padding-right: max(20px, env(safe-area-inset-right, 0px));
 }
@@ -233,4 +233,85 @@ h2 {
 @media (prefers-reduced-motion: reduce) {
   .hero mark { animation: none; }
   .feature h3 a { transition: none; }
+}
+
+/* ---------- Scroll effects (only when fx.js runs) ---------- */
+
+/* Frosted sticky header */
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10;
+  background: var(--paper);
+}
+.bar {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  border-bottom: 1px solid transparent;
+  transition: background-color .3s, border-color .3s;
+}
+.bar .top {
+  max-width: 68rem; margin: 0 auto; padding-block: 0.75rem;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+.bar.stuck {
+  background: color-mix(in srgb, var(--paper) 72%, transparent);
+  -webkit-backdrop-filter: saturate(180%) blur(18px);
+  backdrop-filter: saturate(180%) blur(18px);
+  border-bottom-color: var(--rule);
+}
+
+.fx #hero-name { transform-origin: 0 100%; will-change: transform, opacity; }
+.fx [data-fx="rise"] { will-change: transform, opacity; }
+.fx .big-email { transform-origin: 0 50%; }
+
+/* Pinned statement */
+.statement { margin-top: clamp(4rem, 9vw, 6rem); }
+.statement-inner { max-width: 56rem; }
+.words {
+  font-family: var(--display); font-weight: 800; letter-spacing: -0.035em; line-height: 1.04;
+  font-size: clamp(2.2rem, 6.4vw, 5rem);
+}
+.fx .statement { height: 240vh; margin-top: 0; }
+.fx .statement-inner { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; }
+.fx .words span { color: var(--rule); transition: color .35s ease; }
+.fx .words span.lit { color: var(--ink); }
+.fx .words span.lit:nth-last-child(-n+4) { color: var(--blue); }
+
+/* Specimen: contract clauses slide in, then the suggestion */
+.fx .contract .clause, .fx .contract .suggest { opacity: 0; transform: translateX(-14px); transition: opacity .5s ease, transform .5s ease; }
+.fx .contract.on .clause, .fx .contract.on .suggest { opacity: 1; transform: none; }
+.fx .contract.on .clause:nth-of-type(2) { transition-delay: .15s; }
+.fx .contract.on .clause:nth-of-type(3) { transition-delay: .3s; }
+.fx .contract.on .clause:nth-of-type(4) { transition-delay: .45s; }
+.fx .contract.on .suggest { transition-delay: .9s; }
+.fx .contract mark { background-size: 0% 100%; transition: background-size .6s cubic-bezier(.3,.7,.2,1) .6s; }
+.fx .contract.on mark { background-size: 100% 100%; }
+
+/* Specimen: query types out, bars grow */
+.fx .query pre code { display: block; clip-path: inset(0 100% 0 0); transition: clip-path 1.1s steps(28, end) .2s; }
+.fx .query.on pre code { clip-path: inset(0 0 0 0); }
+.fx .query .bars i { width: 0; transition: width .9s cubic-bezier(.2,.8,.2,1); }
+.fx .query.on .bars i { width: var(--v); }
+.fx .query.on .bars div:nth-child(1) i { transition-delay: 1.3s; }
+.fx .query.on .bars div:nth-child(2) i { transition-delay: 1.4s; }
+.fx .query.on .bars div:nth-child(3) i { transition-delay: 1.5s; }
+.fx .query.on .bars div:nth-child(4) i { transition-delay: 1.6s; }
+
+/* Specimen: days tick in */
+.fx .days li { opacity: 0; transform: translateY(10px); transition: opacity .4s ease, transform .4s ease; }
+.fx .days.on li { opacity: 1; transform: none; }
+.fx .days.on li:nth-child(2) { transition-delay: .07s; }
+.fx .days.on li:nth-child(3) { transition-delay: .14s; }
+.fx .days.on li:nth-child(4) { transition-delay: .21s; }
+.fx .days.on li:nth-child(5) { transition-delay: .28s; }
+.fx .days.on li:nth-child(6) { transition-delay: .35s; }
+.fx .days.on li:nth-child(7) { transition-delay: .42s; }
+.fx .days.on li:nth-child(8) { transition-delay: .49s; }
+.fx .days.on li:nth-child(9) { transition-delay: .56s; }
+.fx .days.on li:nth-child(10) { transition-delay: .63s; }
+
+@media (max-width: 560px) {
+  .fx .statement { height: 200vh; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bar { transition: none; }
 }
