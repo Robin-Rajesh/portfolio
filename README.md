@@ -8,9 +8,9 @@ Personal portfolio site: plain HTML, CSS and JavaScript with no build step.
 
 | Path | What it is |
 |---|---|
-| `index.html` | The whole site: hero, about, experience, projects, skills, education, contact |
-| `styles.css` | Styles, with dark/light themes driven by CSS variables |
-| `script.js` | Theme toggle, mobile menu, project filters, scroll effects |
+| `index.html` | The whole site: intro, work, projects, education |
+| `styles.css` | Styles; follows the system light/dark setting |
+| `fx.js` | Scroll effects (skipped when the visitor prefers reduced motion) |
 | `assets/Robin_Rajesh_Resume.pdf` | Downloadable résumé |
 | `resume/resume.html` | Source for the résumé PDF |
 
