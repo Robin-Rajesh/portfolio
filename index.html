@@ -9,13 +9,13 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="page">
     <header class="top">
-      <h1>Robin Rajesh</h1>
+      <a class="mark" href="#">RR</a>
       <nav aria-label="Sections">
         <a href="#work">Work</a>
         <a href="#projects">Projects</a>
@@ -24,36 +24,40 @@
       </nav>
     </header>
 
-    <section class="intro">
-      <p>
-        I'm a full stack engineer at <strong>Worldline</strong>. Most of what I build is web software that uses language models:
-        FastAPI services, React front ends, and the retrieval and evaluation code that sits between them.
-      </p>
-      <p>
-        I finished an M.Sc. in Artificial Intelligence and Machine Learning at CHRIST University in April 2026.
-        Before Worldline I worked at Sysfore Technologies and did two GenAI internships, one of them at Worldline.
-      </p>
+    <section class="hero">
+      <p class="now"><span class="pulse" aria-hidden="true"></span>Full Stack Engineer at Worldline</p>
+      <h1>Robin<br />Rajesh</h1>
+      <div class="intro">
+        <p>
+          I build <mark>web software that uses language models</mark>: FastAPI services, React front ends,
+          and the retrieval and evaluation code that sits between them.
+        </p>
+        <p>
+          I finished an <mark>M.Sc. in AI and Machine Learning</mark> at CHRIST University in April 2026.
+          Before Worldline I worked at Sysfore Technologies and did two GenAI internships, one of them at Worldline.
+        </p>
+      </div>
       <p class="contact">
-        <span>robin.trajesh@gmail.com</span>
-        <a href="https://github.com/Robin-Rajesh" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.linkedin.com/in/robinrajesh" target="_blank" rel="noopener">LinkedIn</a>
+        <span class="email">robin.trajesh@gmail.com</span>
+        <a href="https://github.com/Robin-Rajesh" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/robinrajesh" target="_blank" rel="noopener">LinkedIn ↗</a>
       </p>
     </section>
 
-    <section id="work">
+    <section id="work" class="block">
       <h2>Work</h2>
       <ol class="entries">
         <li>
           <p class="date">2026 – now</p>
           <div>
-            <h3>Full Stack Engineer, Worldline</h3>
+            <h3>Full Stack Engineer <span class="at">Worldline</span></h3>
             <p>Building features across backend services and web front ends.</p>
           </div>
         </li>
         <li>
           <p class="date">Jan 2026 – 2026</p>
           <div>
-            <h3>Associate Software Developer, Sysfore Technologies</h3>
+            <h3>Associate Software Developer <span class="at">Sysfore Technologies</span></h3>
             <p>
               Built internal AI tools in Python with LangChain and FastAPI: RAG pipelines for pulling data out of documents,
               and a query builder that turns plain-English questions into SQL against PostgreSQL and Supabase.
@@ -64,7 +68,7 @@
         <li>
           <p class="date">Oct – Dec 2025</p>
           <div>
-            <h3>GenAI Intern, Worldline ePayments India</h3>
+            <h3>GenAI Intern <span class="at">Worldline ePayments India</span></h3>
             <p>
               Built a contract risk analysis tool with a FastAPI backend and a React front end. It runs on a local model through Ollama,
               so contracts never leave the machine. Upload, clause analysis, policy checks, a chat over the contract, and a dashboard.
@@ -74,7 +78,7 @@
         <li>
           <p class="date">Apr – Jun 2025</p>
           <div>
-            <h3>GenAI Intern, UIAI Technologies</h3>
+            <h3>GenAI Intern <span class="at">UIAI Technologies</span></h3>
             <p>
               Built HiRe, a resume-to-job matching tool using LangChain, Agno and vector search, with chat history in MongoDB,
               a Streamlit interface and a Flask backend for candidate records.
@@ -84,66 +88,116 @@
       </ol>
     </section>
 
-    <section id="projects">
+    <section id="projects" class="block">
       <h2>Projects</h2>
-      <ul class="projects">
-        <li>
+
+      <article class="feature">
+        <div class="feature-text">
           <h3><a href="https://github.com/Robin-Rajesh/pact-protect" target="_blank" rel="noopener">Pact Protect</a></h3>
           <p>
             Reads a contract, splits it into clauses and rates each one high, medium or low risk against a set of policies you can edit.
             Handles scanned PDFs with Tesseract, finds similar clauses with Qdrant, and suggests safer wording for the risky ones.
           </p>
-          <p class="stack">React, TypeScript, FastAPI, Qdrant, Ollama or Groq</p>
-        </li>
-        <li>
+          <p class="stack">React · TypeScript · FastAPI · Qdrant · Ollama or Groq</p>
+        </div>
+        <figure class="specimen contract" aria-label="Example: three contract clauses with risk ratings">
+          <figcaption>Master Services Agreement · p. 4</figcaption>
+          <div class="clause high">
+            <span class="risk">High</span>
+            <p><b>7.2</b> The Supplier may <mark>terminate this Agreement at any time without notice</mark> and without liability.</p>
+          </div>
+          <div class="clause med">
+            <span class="risk">Med</span>
+            <p><b>4.1</b> Invoices are payable within <mark>sixty (60) days</mark> of receipt.</p>
+          </div>
+          <div class="clause low">
+            <span class="risk">Low</span>
+            <p><b>9.3</b> This Agreement is governed by the laws of India.</p>
+          </div>
+          <p class="suggest"><span>Suggested</span> “…upon thirty (30) days' written notice.”</p>
+        </figure>
+      </article>
+
+      <article class="feature">
+        <div class="feature-text">
           <h3><a href="https://github.com/Robin-Rajesh/SYS_project" target="_blank" rel="noopener">Data analytics portal</a></h3>
           <p>
             Ask a question about a sales database in plain English and get back the SQL, a table and a chart.
             It can also search company policy documents and email a daily summary report.
           </p>
-          <p class="stack">Gemini, LangChain, FastAPI, React, Supabase, pgvector, Plotly</p>
-        </li>
-        <li>
+          <p class="stack">Gemini · LangChain · FastAPI · React · Supabase · pgvector · Plotly</p>
+        </div>
+        <figure class="specimen query" aria-label="Example: a question turned into SQL and a bar chart">
+          <p class="ask">Which regions sold the most in Q3?</p>
+          <pre><code><span class="k">SELECT</span> region, <span class="k">SUM</span>(revenue) <span class="k">AS</span> total
+<span class="k">FROM</span> sales <span class="k">WHERE</span> quarter = <span class="s">'Q3'</span>
+<span class="k">GROUP BY</span> region <span class="k">ORDER BY</span> total <span class="k">DESC</span>;</code></pre>
+          <div class="bars">
+            <div><span>South</span><i style="--v: 100%"></i><b>₹4.2 Cr</b></div>
+            <div><span>West</span><i style="--v: 81%"></i><b>₹3.4 Cr</b></div>
+            <div><span>North</span><i style="--v: 62%"></i><b>₹2.6 Cr</b></div>
+            <div><span>East</span><i style="--v: 38%"></i><b>₹1.6 Cr</b></div>
+          </div>
+          <figcaption>Sample data</figcaption>
+        </figure>
+      </article>
+
+      <article class="feature">
+        <div class="feature-text">
           <h3><a href="https://github.com/Robin-Rajesh/ten-days-of-voice-agents-2025" target="_blank" rel="noopener">Ten voice agents in ten days</a></h3>
           <p>
-            My entry for the murf.ai voice agents challenge: a coffee-order taker, a tutor, a sales rep, a fraud-alert caller,
-            a game master and five others, one per day.
+            My entry for the murf.ai voice agents challenge. One new agent every day, each a full speech-to-text, LLM and
+            text-to-speech loop with its own job and personality.
           </p>
-          <p class="stack">LiveKit, Murf TTS, Deepgram, Gemini</p>
+          <p class="stack">LiveKit · Murf TTS · Deepgram · Gemini</p>
+        </div>
+        <figure class="specimen days" aria-label="The ten agents, one per day">
+          <ol>
+            <li><b>1</b>Starter assistant</li>
+            <li><b>2</b>Coffee barista</li>
+            <li><b>3</b>Wellness check-in</li>
+            <li><b>4</b>Teach-the-tutor</li>
+            <li><b>5</b>Sales rep</li>
+            <li><b>6</b>Fraud alert</li>
+            <li><b>7</b>Grocery orders</li>
+            <li><b>8</b>Game master</li>
+            <li><b>9</b>Voice shopping</li>
+            <li><b>10</b>Improv host</li>
+          </ol>
+        </figure>
+      </article>
+
+      <h3 class="subhead">Smaller things</h3>
+      <ul class="minor">
+        <li>
+          <a href="https://github.com/alex-kh465/Specialization_Project" target="_blank" rel="noopener">GenEWA</a>
+          <p>Study app for college students: AI chat, budget planner and calendar sharing context through MCP. Team project.</p>
         </li>
         <li>
-          <h3><a href="https://github.com/alex-kh465/Specialization_Project" target="_blank" rel="noopener">GenEWA</a></h3>
-          <p>
-            A study app for college students with an AI chat, a budget planner and a calendar that share context through MCP.
-            Built as a team project.
-          </p>
-          <p class="stack">React, TypeScript, Node.js, Supabase, Groq</p>
+          <a href="https://github.com/Robin-Rajesh/Adaptive-Interview-bot" target="_blank" rel="noopener">Interview practice bot</a>
+          <p>Questions adapt to your previous answers; replies are scored with ROUGE, BLEU and semantic similarity.</p>
         </li>
         <li>
-          <h3><a href="https://github.com/Robin-Rajesh/Adaptive-Interview-bot" target="_blank" rel="noopener">Interview practice bot</a></h3>
-          <p>Asks interview questions that adapt to your previous answers and scores your replies with ROUGE, BLEU and semantic similarity.</p>
-          <p class="stack">Groq, Streamlit</p>
+          <a href="https://github.com/Robin-Rajesh/expense-tracker" target="_blank" rel="noopener">Expense tracker MCP server</a>
+          <p>Lets an assistant log expenses, email a report, back up to Google Drive and set Calendar reminders.</p>
         </li>
         <li>
-          <h3><a href="https://github.com/Robin-Rajesh/expense-tracker" target="_blank" rel="noopener">Expense tracker MCP server</a></h3>
-          <p>Lets an assistant like Claude log expenses, email a report, back up to Google Drive and add Calendar reminders.</p>
-          <p class="stack">Python, FastMCP, Google APIs</p>
+          <a href="https://github.com/Robin-Rajesh/DL_project" target="_blank" rel="noopener">CameraBot</a>
+          <p>Webcam object detection with YOLOv5, plus a voice chatbot running locally on Ollama.</p>
         </li>
         <li>
-          <h3><a href="https://github.com/Robin-Rajesh/DL_project" target="_blank" rel="noopener">CameraBot</a></h3>
-          <p>Webcam object detection with YOLOv5, plus a chatbot you talk to by voice that runs locally on Ollama.</p>
-          <p class="stack">YOLOv5, Whisper, Ollama</p>
+          <span class="nolink">HiRe</span>
+          <p>Resume-to-job matching with retrieval agents and vector search, built during my UIAI internship.</p>
         </li>
         <li>
-          <h3>ADHD trait prediction</h3>
+          <span class="nolink">ADHD trait prediction</span>
           <p>XGBoost classifier on survey data, with a Streamlit app for trying it out.</p>
-          <p class="stack">XGBoost, scikit-learn, Streamlit</p>
         </li>
       </ul>
       <p class="more">More coursework and experiments are on <a href="https://github.com/Robin-Rajesh?tab=repositories" target="_blank" rel="noopener">GitHub</a>.</p>
     </section>
 
-    <section id="education">
+    <section id="education" class="block">
       <h2>Education</h2>
       <ol class="entries">
         <li>
@@ -161,19 +215,19 @@
           </div>
         </li>
       </ol>
-    </section>
 
-    <section id="other">
-      <h2>Also</h2>
+      <h3 class="subhead">Also</h3>
       <ul class="plain">
-        <li>First prize at the SRM University national datathon, out of 25+ teams, with a forecasting model.</li>
+        <li><mark>First prize</mark> at the SRM University national datathon, out of 25+ teams, with a forecasting model.</li>
         <li>Working through the AWS Machine Learning Engineer Associate track (<a href="https://github.com/Robin-Rajesh/ML-Engineer-Certificates" target="_blank" rel="noopener">certificates</a>).</li>
         <li>I use Python, TypeScript and SQL day to day, and have written a fair amount of Java and R for coursework.</li>
       </ul>
     </section>
 
     <footer class="foot">
-      <p>Last updated October 2026.</p>
+      <p class="say">Say hello</p>
+      <p class="big-email">robin.trajesh@gmail.com</p>
+      <p class="fine">Last updated October 2026</p>
     </footer>
   </div>
 </body>
